@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Voice Choicer - Mod Creator</title>
+    <!-- Enlace al CSS que haremos en el siguiente paso -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería externa para poder leer y extraer archivos .zip directamente en el navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🎙️ The Voice Choicer</h1>
+            <p>Sube tu .zip de GameBanana, graba tus líneas y exporta tu mod.</p>
+        </header>
+
+        <main>
+            <!-- Paso 1: Subida del archivo -->
+            <section id="upload-section" class="panel">
+                <h2>1. Carga el paquete de voces (.zip)</h2>
+                <div class="upload-box">
+                    <input type="file" id="zip-upload" accept=".zip">
+                    <p id="upload-status">Esperando archivo...</p>
+                </div>
+            </section>
+
+            <!-- Paso 2: Interfaz del Estudio de Grabación -->
+            <!-- Esta sección empezará oculta hasta que subas el zip -->
+            <section id="studio-section" class="panel hidden">
+                <div class="character-header">
+                    <h2>Personaje: <span id="char-name">Detectando...</span></h2>
+                    <p class="clip-counter">Clip <span id="clip-current">0</span> de <span id="clip-total">0</span></p>
+                </div>
+
+                <div class="subtitle-box">
+                    <h3>Subtítulo (Castellano):</h3>
+                    <!-- Aquí el JS inyectará el texto traducido -->
+                    <p id="translated-text">Cargando transcripción y traducción...</p>
+                </div>
+
+                <div class="audio-workspace">
+                    <div class="track-box original-track">
+                        <h3>Audio Original</h3>
+                        <audio id="audio-original" controls></audio>
+                    </div>
+
+                    <div class="track-box record-track">
+                        <h3>Tu Versión</h3>
+                        <div class="record-buttons">
+                            <button id="btn-record" class="btn btn-red">🔴 Grabar</button>
+                            <button id="btn-stop" class="btn btn-gray hidden">⏹️ Detener</button>
+                        </div>
+                        <audio id="audio-recorded" controls class="hidden"></audio>
+                    </div>
+                </div>
+
+                <div class="navigation-controls">
+                    <button id="btn-prev" class="btn btn-nav" disabled>⬅️ Frase Anterior</button>
+                    <button id="btn-next" class="btn btn-nav" disabled>Siguiente Frase ➡️</button>
+                </div>
+            </section>
+
+            <!-- Paso 3: Exportación final -->
+            <section id="export-section" class="panel hidden">
+                <h2>3. Ensamblaje Final</h2>
+                <p>¡Has completado todas las frases!</p>
+                <button id="btn-export" class="btn btn-green">Descargar Modificado (.zip)</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Enlace al JavaScript que haremos al final -->
+    <script src="script.js"></script>
+</body>
+</html>
