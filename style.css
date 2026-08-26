@@ -1,0 +1,230 @@
+/* =========================================
+   VARIABLES DE COLOR Y ESTILOS BASE
+   ========================================= */
+:root {
+    --bg-color: #121216;
+    --panel-bg: #1e1e24;
+    --text-main: #e0e0e0;
+    --text-muted: #888896;
+    --accent-blue: #3a86ff;
+    --accent-red: #ff006e;
+    --accent-green: #06d6a0;
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+/* =========================================
+   PANELES Y SECCIONES
+   ========================================= */
+.panel {
+    background-color: var(--panel-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.5rem;
+    border: 1px solid #2b2b36;
+}
+
+.panel h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #2b2b36;
+    padding-bottom: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   ZONA DE SUBIDA
+   ========================================= */
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    border: 2px dashed #444;
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+input[type="file"] {
+    color: var(--text-main);
+}
+
+/* =========================================
+   ESTUDIO DE GRABACIÓN
+   ========================================= */
+.character-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#char-name {
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+.subtitle-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent-blue);
+}
+
+.subtitle-box h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+#translated-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Espacio de trabajo de audios */
+.audio-workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.track-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.track-box h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+audio {
+    width: 100%;
+    outline: none;
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-red {
+    background-color: var(--accent-red);
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.3);
+}
+
+.btn-red:hover:not(:disabled) {
+    background-color: #ff3385;
+}
+
+.btn-gray {
+    background-color: #4a4a5a;
+}
+
+.btn-gray:hover:not(:disabled) {
+    background-color: #5c5c6e;
+}
+
+.btn-nav {
+    background-color: var(--accent-blue);
+}
+
+.btn-nav:hover:not(:disabled) {
+    background-color: #5c9bff;
+}
+
+.btn-green {
+    background-color: var(--accent-green);
+    color: #000;
+}
+
+.btn-green:hover {
+    background-color: #08f0b4;
+}
+
+.record-buttons {
+    margin-bottom: 1rem;
+}
+
+.navigation-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #2b2b36;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+    .audio-workspace {
+        grid-template-columns: 1fr;
+    }
+}
